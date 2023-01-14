@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1F1F1F;
+    font-family: 'Courgette', cursive;
+}
+
+@media (orientation: landscape) {
+    .portrait-info {
+        display: none;
+    }
+    video {
+        position: absolute;
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
+    
+    .letter {
+        position: absolute;
+        width: 30%;
+        height: calc(100vh - 2rem);
+        right: 0;
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1em;
+    }
+
+    .btn {
+        padding: 0.5em;
+    }
+    
+    .letter-content, .btn{
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        width: fit-content;
+        padding: 2% 5%;
+        color: white;
+        background: url(repeat.jpg) repeat;
+        border: white 2px solid;
+        box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.445);
+        font-family: 'Courgette', cursive;
+        border-radius: 3px;
+    }
+    
+    .letter-content {
+        flex-direction: column;
+        opacity: 0;
+        max-height: 0vh;
+        font-size: 1rem;
+        gap: 0.5em;
+        overflow: auto;
+        align-items: baseline;
+        transition: all 1s ease-in-out;
+    }
+
+    .letter-content > p {
+        text-align: left;
+        font-weight: 500;
+    }
+    
+    .letter-content.open {
+        opacity: 1;
+        max-height: 60vh;
+    }
+
+    a {
+        color: white;
+        text-decoration: underline;
+        font-size: 1rem;
+    }
+
+    .mute {
+        position: absolute;
+        top: 2vh;
+        left: 2vh;
+        padding: 0.5em;
+    }
+}
+
+@media (orientation: portrait) {
+    .portrait-info {
+        display: flex;
+        color: white;
+        text-align: center;
+        width: 100vw;
+        gap: 10vh;
+        height: 100vh;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .portrait-info h2 {
+        font-size: 2rem;
+        padding: 0 1em;
+    }
+    .portrait-info > svg {
+        width: 60vw;
+    }
+    .portrait-info ~ * {
+        display: none;
+    }
+}
+
+@media (min-width: 1300px) {
+    .letter p {
+        font-size: 1.75rem;
+    }
+}
